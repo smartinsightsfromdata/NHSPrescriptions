@@ -14,11 +14,7 @@ shinyUI(pageWithSidebar(
   
   # Sidebar with a slider input for number of observations
   sidebarPanel(
-    sliderInput("obs", 
-                "Number of observations:", 
-                min = 1, 
-                max = 1000, 
-                value = 500),
+   
     #
     selectInput("sha", "Select Strategic Health Autority (SHA):",aList),
     uiOutput("tbl"),
@@ -35,7 +31,7 @@ shinyUI(pageWithSidebar(
   # Show a plot of the generated distribution
   mainPanel(
     tabsetPanel(
-      tabPanel("SHA Stacked Barchart", plotOutput("distPlot")),
+      tabPanel("SHA Stacked Barchart", plotOutput("whatPlot")),
       tabPanel("SHA Linechart", plotOutput("shaLineChart")),
       tabPanel("SHA BoxPlot", plotOutput("shaBoxPlot"))
     ),
