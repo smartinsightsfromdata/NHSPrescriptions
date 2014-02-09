@@ -1,0 +1,14 @@
+id,name
+id_0,A&E closures
+id_1,A&E diverts
+id_2,Trolley-waits over 12 hours
+id_3,Cancelled operations
+id_4,Critical care transfers
+id_5,Ambulances queuing
+id_6,G&A beds
+id_7,"D&V, Norovirus"
+id_8,Delayed transfers of care
+id_9,Adult critical care
+id_10,Paediatric intensive care
+id_11,Neonatal intensive care 
+id_12,Trusts with Ops problems

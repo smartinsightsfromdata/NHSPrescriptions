@@ -10,7 +10,7 @@ library(shiny)
 shinyUI(pageWithSidebar(
   
   # Application title
-  headerPanel("New Application"),
+  headerPanel("NHS - Prescription Analysis in England"),
   
   # Sidebar with a slider input for number of observations
   sidebarPanel(
@@ -18,11 +18,33 @@ shinyUI(pageWithSidebar(
                 "Number of observations:", 
                 min = 1, 
                 max = 1000, 
-                value = 500)
+                value = 500),
+    #
+    selectInput("sha", "Select Strategic Health Autority (SHA):",aList),
+    uiOutput("tbl"),
+##    checkboxInput("pctdownonly", "Only download this Trust's data", FALSE),
+
+    div("This demo provides a crude graphical view over data extracted from",
+        a(href='http://transparency.dh.gov.uk/2012/10/26/winter-pressures-daily-situation-reports-2012-13/',
+          "NHS Winter pressures daily situation reports") ),
+    div("The data is pulled in from ",
+        a(href="https://scraperwiki.com","NHS Sit Reps")),
+    div(em("Commentary on the data:"),"'Monday morning).'")
   ),
   
   # Show a plot of the generated distribution
   mainPanel(
-    plotOutput("distPlot")
+    tabsetPanel(
+      tabPanel("SHA Stacked Barchart", plotOutput("distPlot")),
+      tabPanel("SHA Linechart", plotOutput("shaLineChart")),
+      tabPanel("SHA BoxPlot", plotOutput("shaBoxPlot"))
+    ),
+    tabsetPanel(
+      tabPanel("PCT Barchart",plotOutput("testPlot")),
+      tabPanel("PCT Linechart",plotOutput("pctLineChart")),
+      tabPanel("PCT Daily Boxplot",plotOutput("dayPlot")),
+      tabPanel("PCT Datatable",tableOutput("view"))
+    )
+
   )
 ))
