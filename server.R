@@ -9,12 +9,11 @@ library(shiny)
 
 shinyServer(function(input, output) {
    
-  output$tbl <- reactiveUI(function() {
+  output$tbl <- renderUI({
     #cities <- getNearestCities(input$lat, input$long)
     #checkboxGroupInput("cities", "Choose Cities", cities)
     tmp <- subset(shalookup,SHA==input$sha,select=c('Code','Name'))
-    tmp1 <- unique(shalookup[,"SHA"==input$sha])
-    
+#    tmp1 <- unique(shalookup[,"SHA"==input$sha])   
     tmp$Code=factor(tmp$Code)
     tmp$Name=factor(tmp$Name)
     tList=tmp$Code

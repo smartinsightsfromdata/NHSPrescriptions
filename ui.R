@@ -25,7 +25,7 @@ shinyUI(pageWithSidebar(
           "NHS Winter pressures daily situation reports") ),
     div("The data is pulled in from ",
         a(href="https://scraperwiki.com","NHS Sit Reps")),
-    div(em("Commentary on the data:"),"'Monday morning).'")
+    div(em("Commentary on the data:"),"'Monday morning.'")
   ),
   
   # Show a plot of the generated distribution
